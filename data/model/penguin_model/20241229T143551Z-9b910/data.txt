@@ -1,0 +1,21 @@
+api_version: 1
+created: 20241229T143551Z
+description: A scikit-learn LinearRegression model
+file: penguin_model.joblib
+file_size: 985
+pin_hash: 9b9101cafe7e47b3
+title: 'penguin_model: a pinned LinearRegression object'
+type: joblib
+user:
+  user: {}
+  vetiver_meta:
+    prototype: '{"bill_length_mm": 39.1, "species_Chinstrap": false, "species_Gentoo":
+      false, "sex_male": true}'
+    python_version:
+    - 3
+    - 13
+    - 1
+    - final
+    - 0
+    required_pkgs:
+    - scikit-learn

@@ -1,0 +1,18 @@
+Version: 1.0
+ProjectId: 0ad53cf4-80b0-4e22-97d5-ef9fe18b91c8
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+PythonType: virtualenv
+PythonVersion: 3.13.1
+PythonPath: penguins-env/Scripts/python.exe
