@@ -24,7 +24,7 @@ jobs:
           use-public-rspm: true
         
       - name: Install MASS package from source
-        run: Rscript -e "install.packages('MASS', repos='https://cloud.r-project.org', type='source')"
+        run: Rscript -e "install.packages('MASS', repos='https://cran.rstudio.org', type='source')"
 
       - name: Setup renv and install packages
         uses: r-lib/actions/setup-renv@v2
