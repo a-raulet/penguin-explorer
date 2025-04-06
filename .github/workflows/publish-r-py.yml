@@ -31,6 +31,7 @@ jobs:
         with:
           cache-version: 1
         env:
+          RENV_CONFIG_RECOMMENDED_PACKAGES_ENABLED: "FALSE"
           RENV_CONFIG_REPOS_OVERRIDE: https://packagemanager.rstudio.com/all/latest
 
       - name: Install Python and Dependencies
