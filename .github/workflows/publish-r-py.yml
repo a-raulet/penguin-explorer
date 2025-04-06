@@ -23,15 +23,14 @@ jobs:
           r-version: '4.2.0'
           use-public-rspm: true
         
-      - name: Install MASS via apt-get
-        run: sudo apt-get update && sudo apt-get install -y r-cran-mass
+      - name: Install MASS package from source
+        run: Rscript -e "install.packages('MASS', repos='https://cloud.r-project.org', type='source')"
 
       - name: Setup renv and install packages
         uses: r-lib/actions/setup-renv@v2
         with:
           cache-version: 1
         env:
-          RENV_CONFIG_RECOMMENDED_PACKAGES_ENABLED: "FALSE"
           RENV_CONFIG_REPOS_OVERRIDE: https://packagemanager.rstudio.com/all/latest
 
       - name: Install Python and Dependencies
