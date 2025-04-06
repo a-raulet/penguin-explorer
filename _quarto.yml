@@ -18,3 +18,5 @@ format:
 
 editor: visual
 
+exclude:
+  - ancien_lab/
