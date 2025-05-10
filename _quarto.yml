@@ -1,22 +1,30 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: _site
+  render:
+    - index.qmd
+    - about.qmd
+    - model-vetiver.qmd
+    - "!ancien_lab/*"
+    - "!eda-db.qmd"
+    - "!model-basic-py.qmd"
+    - "!model-db.qmd"
+    - "!app-*.R"
+    - "!my-db.duckdb"
 
 website:
-  title: "penguin_explorer"
+  title: "Penguin Explorer"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - text: "Home"
+        file: index.qmd
+      - text: "About"
+        file: about.qmd
+      - text: "Model"
+        file: model-vetiver.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-editor: visual
-
-exclude:
-  - ancien_lab/
