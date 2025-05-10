@@ -2,3 +2,12 @@
 .Rhistory
 .RData
 .Ruserdata
+ancien_lab/
+eda-db.qmd
+model-basic-py.qmd
+model-db.qmd
+app-api_correction.R
+app-log.R
+my-db.duckdb
+
+/.quarto/
