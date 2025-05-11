@@ -1,7 +1,27 @@
+# RStudio files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Quarto and rendering artifacts
+_site/
+.quarto/
+*.html
+*.ipynb
+*.pdf
+
+# Python and Jupyter
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+.env/
+.venv/
+penguins-env/
+.ipynb_checkpoints/
+
+# Project-specific (data, scripts not to publish)
 ancien_lab/
 eda-db.qmd
 model-basic-py.qmd
@@ -10,4 +30,3 @@ app-api_correction.R
 app-log.R
 my-db.duckdb
 
-/.quarto/
