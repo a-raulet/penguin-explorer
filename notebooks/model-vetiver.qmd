@@ -54,7 +54,7 @@ v = VetiverModel(model, model_name='penguin_model', prototype_data=X)
 from pins import board_folder
 from vetiver import vetiver_pin_write
 
-model_board = board_folder("data/model", allow_pickle_read = True)
+model_board = board_folder("../data/model", allow_pickle_read = True)
 vetiver_pin_write(model_board, v)
 ```
 
@@ -71,6 +71,24 @@ app = VetiverAPI(v, check_prototype = True)
 from pins import board_folder
 from vetiver import VetiverModel
 
-b = board_folder('data/model', allow_pickle_read = True)
-v = VetiverModel.from_pin(b, 'penguin_model')
+b = board_folder('../data/model', allow_pickle_read = True)
+v = VetiverModel.from_pin(b, 'penguin_model', version = "20241229T143551Z-9b910")
 ```
+
+## Generate Dockerfile automatically
+
+`touch Dockerfile` in the terminal to create an empty Dockerfile. Or use the vetiver package in R (`vetiver_write_docker` function).
+
+## Deploying on Docker
+
+```{bash eval=FALSE}
+
+docker build -t penguin-model .
+docker run --rm -d \
+  -p 8080:8080 \
+  -v $(pwd)/data/model:/data/model \
+  --name penguin-model \
+  penguin-model
+
+```
+
