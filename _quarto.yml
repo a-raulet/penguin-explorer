@@ -2,9 +2,9 @@ project:
   type: website
   output-dir: _site
   render:
-    - index.qmd
-    - about.qmd
-    - model-vetiver.qmd
+    - pages/index.qmd
+    - pages/about.qmd
+    - notebooks/model-vetiver.qmd
     - "!eda-db.qmd"
     - "!model-basic-py.qmd"
     - "!model-db.qmd"
@@ -16,11 +16,11 @@ website:
   navbar:
     left:
       - text: "Home"
-        file: pages/index.qmd
+        href: pages/index.qmd
       - text: "About"
-        file: pages/about.qmd
+        href: pages/about.qmd
       - text: "Model"
-        file: notebooks/model-vetiver.qmd
+        href: notebooks/model-vetiver.qmd
 
 format:
   html:
