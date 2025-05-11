@@ -5,7 +5,6 @@ project:
     - index.qmd
     - about.qmd
     - model-vetiver.qmd
-    - "!ancien_lab/*"
     - "!eda-db.qmd"
     - "!model-basic-py.qmd"
     - "!model-db.qmd"
@@ -17,11 +16,11 @@ website:
   navbar:
     left:
       - text: "Home"
-        file: index.qmd
+        file: pages/index.qmd
       - text: "About"
-        file: about.qmd
+        file: pages/about.qmd
       - text: "Model"
-        file: model-vetiver.qmd
+        file: notebooks/model-vetiver.qmd
 
 format:
   html:
