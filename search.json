@@ -11,7 +11,7 @@
     "href": "model-vetiver.html#get-data",
     "title": "Model",
     "section": "Get Data",
-    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007"
+    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007"
   },
   {
     "objectID": "model-vetiver.html#define-model-and-fit",
