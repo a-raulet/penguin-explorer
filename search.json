@@ -1,70 +1,70 @@
 [
   {
-    "objectID": "model-vetiver.html",
-    "href": "model-vetiver.html",
+    "objectID": "notebooks/model-vetiver.html",
+    "href": "notebooks/model-vetiver.html",
     "title": "Model",
     "section": "",
     "text": "Code\nfrom pandas import get_dummies\nimport numpy as np\nfrom sklearn.linear_model import LinearRegression\nfrom sklearn import preprocessing"
   },
   {
-    "objectID": "model-vetiver.html#get-data",
-    "href": "model-vetiver.html#get-data",
+    "objectID": "notebooks/model-vetiver.html#get-data",
+    "href": "notebooks/model-vetiver.html#get-data",
     "title": "Model",
     "section": "Get Data",
-    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007"
+    "text": "Get Data\n\n\nCode\nimport duckdb\ncon = duckdb.connect('../my-db.duckdb')\ndf = con.execute(\"SELECT * FROM penguins\").fetchdf().dropna()\ncon.close()\n\ndf.head(3)\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007"
   },
   {
-    "objectID": "model-vetiver.html#define-model-and-fit",
-    "href": "model-vetiver.html#define-model-and-fit",
+    "objectID": "notebooks/model-vetiver.html#define-model-and-fit",
+    "href": "notebooks/model-vetiver.html#define-model-and-fit",
     "title": "Model",
     "section": "Define Model and Fit",
     "text": "Define Model and Fit\n\n\nCode\nX = get_dummies(df[['bill_length_mm', 'species', 'sex']], drop_first = True)\ny = df['body_mass_g']\n\nmodel = LinearRegression().fit(X, y)"
   },
   {
-    "objectID": "model-vetiver.html#get-some-information",
-    "href": "model-vetiver.html#get-some-information",
+    "objectID": "notebooks/model-vetiver.html#get-some-information",
+    "href": "notebooks/model-vetiver.html#get-some-information",
     "title": "Model",
     "section": "Get some information",
     "text": "Get some information\n\n\nCode\nprint(f\"R^2 {model.score(X,y)}\")\nprint(f\"Intercept {model.intercept_}\")\nprint(f\"Columns {X.columns}\")\nprint(f\"Coefficients {model.coef_}\")\n\n\nR^2 0.8555368759537614\nIntercept 2169.2697209393996\nColumns Index(['bill_length_mm', 'species_Chinstrap', 'species_Gentoo', 'sex_male'], dtype='object')\nCoefficients [  32.53688677 -298.76553447 1094.86739145  547.36692408]"
   },
   {
-    "objectID": "model-vetiver.html#turn-into-vetiver-model",
-    "href": "model-vetiver.html#turn-into-vetiver-model",
+    "objectID": "notebooks/model-vetiver.html#turn-into-vetiver-model",
+    "href": "notebooks/model-vetiver.html#turn-into-vetiver-model",
     "title": "Model",
     "section": "Turn into Vetiver Model",
     "text": "Turn into Vetiver Model\n\n\nCode\nfrom vetiver import VetiverModel\nv = VetiverModel(model, model_name='penguin_model', prototype_data=X)"
   },
   {
-    "objectID": "model-vetiver.html#save-to-board",
-    "href": "model-vetiver.html#save-to-board",
+    "objectID": "notebooks/model-vetiver.html#save-to-board",
+    "href": "notebooks/model-vetiver.html#save-to-board",
     "title": "Model",
     "section": "Save to Board",
     "text": "Save to Board\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import vetiver_pin_write\n\nmodel_board = board_folder(\"data/model\", allow_pickle_read = True)\nvetiver_pin_write(model_board, v)\n\n\nModel Cards provide a framework for transparent, responsible reporting. \n Use the vetiver `.qmd` Quarto template as a place to start, \n with vetiver.model_card()\n('The hash of pin \"penguin_model\" has not changed. Your pin will not be stored.',)"
   },
   {
-    "objectID": "model-vetiver.html#turn-model-into-api",
-    "href": "model-vetiver.html#turn-model-into-api",
+    "objectID": "notebooks/model-vetiver.html#turn-model-into-api",
+    "href": "notebooks/model-vetiver.html#turn-model-into-api",
     "title": "Model",
     "section": "Turn model into API",
     "text": "Turn model into API\n\n\nCode\nfrom vetiver import VetiverAPI\napp = VetiverAPI(v, check_prototype = True)"
   },
   {
-    "objectID": "model-vetiver.html#get-model-back",
-    "href": "model-vetiver.html#get-model-back",
+    "objectID": "notebooks/model-vetiver.html#get-model-back",
+    "href": "notebooks/model-vetiver.html#get-model-back",
     "title": "Model",
     "section": "Get model back",
     "text": "Get model back\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import VetiverModel\n\nb = board_folder('data/model', allow_pickle_read = True)\nv = VetiverModel.from_pin(b, 'penguin_model')"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "pages/index.html",
+    "href": "pages/index.html",
     "title": "penguin_explorer",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
+    "objectID": "pages/about.html",
+    "href": "pages/about.html",
     "title": "About",
     "section": "",
     "text": "About this site"
