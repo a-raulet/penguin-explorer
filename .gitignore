@@ -22,7 +22,6 @@ penguins-env/
 .ipynb_checkpoints/
 
 # Project-specific (data, scripts not to publish)
-ancien_lab/
 eda-db.qmd
 model-basic-py.qmd
 model-db.qmd
