@@ -1,7 +1,52 @@
 ---
-title: "penguin_explorer"
+title: "Penguin Explorer"
 ---
 
-This is a Quarto website.
+## Predict Penguin Body Mass
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This project demonstrates a complete MLOps pipeline for predicting penguin body mass using the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset.
+
+### Features
+
+- **Machine Learning Model**: Linear regression trained on bill length, species, and sex
+- **REST API**: Model served via [Vetiver](https://vetiver.rstudio.com/) and FastAPI
+- **Dual Frontend**: Interactive Shiny applications in both Python and R
+- **Containerized**: Full Docker Compose setup for easy deployment
+
+### Architecture
+
+```
+┌─────────────────┐     ┌─────────────────┐
+│  Shiny Python   │────▶│                 │
+│   (port 8000)   │     │   Vetiver API   │
+└─────────────────┘     │   (port 8080)   │
+                        │                 │
+┌─────────────────┐     │   ┌─────────┐   │
+│    Shiny R      │────▶│   │  Model  │   │
+│   (port 3838)   │     │   └─────────┘   │
+└─────────────────┘     └─────────────────┘
+```
+
+### Quick Start
+
+```bash
+docker compose up --build
+```
+
+Then open:
+
+- **Python App**: [http://localhost:8000](http://localhost:8000)
+- **R App**: [http://localhost:3838](http://localhost:3838)
+- **API Docs**: [http://localhost:8080/docs](http://localhost:8080/docs)
+
+### Model Performance
+
+The linear regression model uses the following features:
+
+| Feature | Description |
+|---------|-------------|
+| `bill_length_mm` | Bill length in millimeters |
+| `species` | Adelie, Chinstrap, or Gentoo |
+| `sex` | Male or Female |
+
+See the [Model](/notebooks/model-vetiver.qmd) page for training details and performance metrics.

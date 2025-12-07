@@ -1,0 +1,32 @@
+services:
+  api:
+    build: ./api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data/model:/data/model:ro
+    environment:
+      - MODEL_PATH=/data/model
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  frontend-python:
+    build: ./frontend-python
+    ports:
+      - "8000:8000"
+    environment:
+      - API_URL=http://api:8080/predict
+    depends_on:
+      - api
+
+  frontend-r:
+    build: ./frontend-r
+    ports:
+      - "3838:3838"
+    environment:
+      - API_URL=http://api:8080/predict
+    depends_on:
+      - api

@@ -72,7 +72,7 @@ from pins import board_folder
 from vetiver import VetiverModel
 
 b = board_folder('../data/model', allow_pickle_read = True)
-v = VetiverModel.from_pin(b, 'penguin_model', version = "20241229T143551Z-9b910")
+v = VetiverModel.from_pin(b, 'penguin_model')
 ```
 
 ## Generate Dockerfile automatically

@@ -2,4 +2,37 @@
 title: "About"
 ---
 
-About this site
+## About This Project
+
+Penguin Explorer is a portfolio project demonstrating end-to-end machine learning deployment skills in both **R** and **Python**.
+
+### Technologies Used
+
+#### Data & ML
+- **pandas** / **dplyr**: Data manipulation
+- **scikit-learn**: Model training
+- **DuckDB**: Local analytical database
+- **Vetiver**: Model versioning and deployment
+
+#### Web Applications
+- **Shiny for Python**: Reactive web application
+- **Shiny for R**: Reactive web application
+- **FastAPI**: REST API framework
+
+#### DevOps
+- **Docker**: Containerization
+- **Docker Compose**: Multi-container orchestration
+- **GitHub Actions**: CI/CD pipeline
+- **Quarto**: Documentation website
+
+### Dataset
+
+This project uses the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset, which contains measurements for three penguin species observed on islands in the Palmer Archipelago, Antarctica.
+
+### Author
+
+Built as part of the [DevOps for Data Science](https://do4ds.com/) curriculum.
+
+### Source Code
+
+Available on GitHub.

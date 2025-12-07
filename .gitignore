@@ -18,15 +18,24 @@ __pycache__/
 *.egg-info/
 .env/
 .venv/
+venv/
 penguins-env/
 .ipynb_checkpoints/
 
-# Project-specific (data, scripts not to publish)
-eda-db.qmd
-model-basic-py.qmd
-model-db.qmd
-app-api_correction.R
-app-log.R
+# R environment
+renv/library/
+renv/staging/
 
+# Database
+*.duckdb
+*.duckdb.wal
 
-/.quarto/
+# Model artifacts (keep structure, ignore large files)
+data/model/penguin_model/*/model.joblib
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
