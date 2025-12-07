@@ -53,7 +53,7 @@
     "href": "notebooks/model-vetiver.html#get-model-back",
     "title": "Model",
     "section": "Get model back",
-    "text": "Get model back\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import VetiverModel\n\nb = board_folder('../data/model', allow_pickle_read = True)\nv = VetiverModel.from_pin(b, 'penguin_model', version = \"20241229T143551Z-9b910\")"
+    "text": "Get model back\n\n\nCode\nfrom pins import board_folder\nfrom vetiver import VetiverModel\n\nb = board_folder('../data/model', allow_pickle_read = True)\nv = VetiverModel.from_pin(b, 'penguin_model')"
   },
   {
     "objectID": "notebooks/model-vetiver.html#generate-dockerfile-automatically",
@@ -72,15 +72,29 @@
   {
     "objectID": "pages/index.html",
     "href": "pages/index.html",
-    "title": "penguin_explorer",
+    "title": "Penguin Explorer",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "This project demonstrates a complete MLOps pipeline for predicting penguin body mass using the Palmer Penguins dataset.\n\n\n\nMachine Learning Model: Linear regression trained on bill length, species, and sex\nREST API: Model served via Vetiver and FastAPI\nDual Frontend: Interactive Shiny applications in both Python and R\nContainerized: Full Docker Compose setup for easy deployment\n\n\n\n\n┌─────────────────┐     ┌─────────────────┐\n│  Shiny Python   │────▶│                 │\n│   (port 8000)   │     │   Vetiver API   │\n└─────────────────┘     │   (port 8080)   │\n                        │                 │\n┌─────────────────┐     │   ┌─────────┐   │\n│    Shiny R      │────▶│   │  Model  │   │\n│   (port 3838)   │     │   └─────────┘   │\n└─────────────────┘     └─────────────────┘\n\n\n\ndocker compose up --build\nThen open:\n\nPython App: http://localhost:8000\nR App: http://localhost:3838\nAPI Docs: http://localhost:8080/docs\n\n\n\n\nThe linear regression model uses the following features:\n\n\n\nFeature\nDescription\n\n\n\n\nbill_length_mm\nBill length in millimeters\n\n\nspecies\nAdelie, Chinstrap, or Gentoo\n\n\nsex\nMale or Female\n\n\n\nSee the Model page for training details and performance metrics."
+  },
+  {
+    "objectID": "pages/index.html#predict-penguin-body-mass",
+    "href": "pages/index.html#predict-penguin-body-mass",
+    "title": "Penguin Explorer",
+    "section": "",
+    "text": "This project demonstrates a complete MLOps pipeline for predicting penguin body mass using the Palmer Penguins dataset.\n\n\n\nMachine Learning Model: Linear regression trained on bill length, species, and sex\nREST API: Model served via Vetiver and FastAPI\nDual Frontend: Interactive Shiny applications in both Python and R\nContainerized: Full Docker Compose setup for easy deployment\n\n\n\n\n┌─────────────────┐     ┌─────────────────┐\n│  Shiny Python   │────▶│                 │\n│   (port 8000)   │     │   Vetiver API   │\n└─────────────────┘     │   (port 8080)   │\n                        │                 │\n┌─────────────────┐     │   ┌─────────┐   │\n│    Shiny R      │────▶│   │  Model  │   │\n│   (port 3838)   │     │   └─────────┘   │\n└─────────────────┘     └─────────────────┘\n\n\n\ndocker compose up --build\nThen open:\n\nPython App: http://localhost:8000\nR App: http://localhost:3838\nAPI Docs: http://localhost:8080/docs\n\n\n\n\nThe linear regression model uses the following features:\n\n\n\nFeature\nDescription\n\n\n\n\nbill_length_mm\nBill length in millimeters\n\n\nspecies\nAdelie, Chinstrap, or Gentoo\n\n\nsex\nMale or Female\n\n\n\nSee the Model page for training details and performance metrics."
   },
   {
     "objectID": "pages/about.html",
     "href": "pages/about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "Penguin Explorer is a portfolio project demonstrating end-to-end machine learning deployment skills in both R and Python.\n\n\n\n\n\npandas / dplyr: Data manipulation\nscikit-learn: Model training\nDuckDB: Local analytical database\nVetiver: Model versioning and deployment\n\n\n\n\n\nShiny for Python: Reactive web application\nShiny for R: Reactive web application\nFastAPI: REST API framework\n\n\n\n\n\nDocker: Containerization\nDocker Compose: Multi-container orchestration\nGitHub Actions: CI/CD pipeline\nQuarto: Documentation website\n\n\n\n\n\nThis project uses the Palmer Penguins dataset, which contains measurements for three penguin species observed on islands in the Palmer Archipelago, Antarctica.\n\n\n\nBuilt as part of the DevOps for Data Science curriculum.\n\n\n\nAvailable on GitHub."
+  },
+  {
+    "objectID": "pages/about.html#about-this-project",
+    "href": "pages/about.html#about-this-project",
+    "title": "About",
+    "section": "",
+    "text": "Penguin Explorer is a portfolio project demonstrating end-to-end machine learning deployment skills in both R and Python.\n\n\n\n\n\npandas / dplyr: Data manipulation\nscikit-learn: Model training\nDuckDB: Local analytical database\nVetiver: Model versioning and deployment\n\n\n\n\n\nShiny for Python: Reactive web application\nShiny for R: Reactive web application\nFastAPI: REST API framework\n\n\n\n\n\nDocker: Containerization\nDocker Compose: Multi-container orchestration\nGitHub Actions: CI/CD pipeline\nQuarto: Documentation website\n\n\n\n\n\nThis project uses the Palmer Penguins dataset, which contains measurements for three penguin species observed on islands in the Palmer Archipelago, Antarctica.\n\n\n\nBuilt as part of the DevOps for Data Science curriculum.\n\n\n\nAvailable on GitHub."
   }
 ]
